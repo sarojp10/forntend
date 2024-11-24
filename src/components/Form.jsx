@@ -11,7 +11,7 @@ function Form({ type, id }) {
         personGender: "male"
     })
     const fetchPerson = async () => {
-        const response = await axios.get("http://localhost:3300/person/" + id)
+        const response = await axios.get("http://localhost:3000/person/" + id)
         if (response.status === 200) {
             setData(response.data.data)
         }
@@ -36,7 +36,7 @@ function Form({ type, id }) {
     const createPerson = async (e) => {
         e.preventDefault()
         if (type === "create") {
-            const response = await axios.post("http://localhost:3300/person", data, {
+            const response = await axios.post("http://localhost:3000/person", data, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -47,7 +47,7 @@ function Form({ type, id }) {
                 alert("Fail to create new profile.")
             }
         } else {
-            const response = await axios.patch("http://localhost:3300/person/" + id, data, {
+            const response = await axios.patch("http://localhost:3000/person" + id, data, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
